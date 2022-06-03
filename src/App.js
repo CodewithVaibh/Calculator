@@ -112,58 +112,36 @@ function evaluate({ currentoperand, previousoperand, operation }) {
     return res;
 }
 
+
 function App() {
-    const [{ currentoperand, previousoperand, operation }, dispatch] = useReducer(reducer, {})
-    return ( <
-        div className = "Calculator-grid" >
-        <
-        div className = "Output" >
-        <
-        div className = "Previous-operand" > { previousoperand } { operation } < /div>             <
-        div className = "current-operand" > { currentoperand } < /div>             <
-        /div> <
-        button className = "span-two"
-        onClick = {
-            () => dispatch({ type: Actions.Clear }) } > AC < /button> <
-        button onClick = {
-            () => dispatch({ type: Actions.Delete }) } > DEL < /button>  <
-        OperationButton operation = "%"
-        dispatch = { dispatch } > < /OperationButton>                                                     <
-        DigitButton digit = "1"
-        dispatch = { dispatch } > < /DigitButton>                                                      <
-        DigitButton digit = "2"
-        dispatch = { dispatch } > < /DigitButton>                                                      <
-        DigitButton digit = "3"
-        dispatch = { dispatch } > < /DigitButton>                                                      <
-        OperationButton operation = "x"
-        dispatch = { dispatch } > < /OperationButton>                                                   <
-        DigitButton digit = "4"
-        dispatch = { dispatch } > < /DigitButton>                                                       <
-        DigitButton digit = "5"
-        dispatch = { dispatch } > < /DigitButton>                                                       <
-        DigitButton digit = "6"
-        dispatch = { dispatch } > < /DigitButton>                                                    <
-        OperationButton operation = "+"
-        dispatch = { dispatch } > < /OperationButton>                                                    <
-        DigitButton digit = "7"
-        dispatch = { dispatch } > < /DigitButton>                                                                                                           <
-        DigitButton digit = "8"
-        dispatch = { dispatch } > < /DigitButton>                                                                                                           <
-        DigitButton digit = "9"
-        dispatch = { dispatch } > < /DigitButton>                                                                                                 <
-        OperationButton operation = "-"
-        dispatch = { dispatch } > < /OperationButton>                                                     <
-        DigitButton digit = "."
-        dispatch = { dispatch } > < /DigitButton>     <
-        DigitButton digit = "0"
-        dispatch = { dispatch } > < /DigitButton>   
-
-        <
-        button className = "span-two"
-        onClick = {
-            () => dispatch({ type: Actions.Equals }) } >= < /button> <
-        /div>
-    );
-}
-
-export default App;
+    const [{currentoperand,previousoperand,operation}, dispatch] = useReducer(reducer,{})
+     return (
+              <div className="Calculator-grid">
+                <div className="Output">
+                  <div className="Previous-operand">{previousoperand} {operation}</div>            
+                  <div className="current-operand">{currentoperand}</div>            
+                </div>
+                <button className="span-two" onClick={() => dispatch({type: Actions.Clear})}>AC</button>
+                <button onClick={() => dispatch({type:Actions.Delete})}>DEL</button> 
+                <OperationButton operation="%" dispatch={dispatch}></OperationButton>                                                    
+                <DigitButton digit="1" dispatch={dispatch}></DigitButton>                                                     
+                <DigitButton digit="2" dispatch={dispatch}></DigitButton>                                                     
+                <DigitButton digit="3" dispatch={dispatch}></DigitButton>                                                     
+                <OperationButton operation="x" dispatch={dispatch}></OperationButton>                                                  
+                <DigitButton digit="4" dispatch={dispatch}></DigitButton>                                                      
+                <DigitButton digit="5" dispatch={dispatch}></DigitButton>                                                      
+                <DigitButton digit="6" dispatch={dispatch}></DigitButton>                                                   
+                <OperationButton operation="+" dispatch={dispatch}></OperationButton>                                                   
+                <DigitButton digit="7" dispatch={dispatch}></DigitButton>                                                                                                          
+                <DigitButton digit="8" dispatch={dispatch}></DigitButton>                                                                                                          
+                <DigitButton digit="9" dispatch={dispatch}></DigitButton>                                                                                                
+                <OperationButton operation="-" dispatch={dispatch}></OperationButton>                                                    
+                <DigitButton digit="." dispatch={dispatch}></DigitButton>    
+                <DigitButton digit="0" dispatch={dispatch}></DigitButton>   
+                
+                <button className="span-two" onClick={() => dispatch({type: Actions.Equals})}>=</button>
+              </div>
+            );
+          }
+          
+          export default App;
